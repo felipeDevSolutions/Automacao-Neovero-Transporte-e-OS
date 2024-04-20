@@ -185,8 +185,25 @@ body {
     padding: 5px;
 }
 
-.table button:hover {
+.table .btn-deletar:hover {
     background-color: #d32f2f;
+}
+
+.table .btn-ok {
+    background-color: #4CAF50; /* Verde */
+}
+
+.table .btn-ok:hover {
+    background-color: #39883c;
+}
+
+
+.table .btn-erro {
+    background-color: #c2af00; /* Amarelo */
+}
+
+.table .btn-erro:hover {
+    background-color: #938400; /* Amarelo */
 }
 
 .left-container {
