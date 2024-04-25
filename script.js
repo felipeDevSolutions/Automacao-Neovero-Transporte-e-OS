@@ -59,23 +59,51 @@ function verificarTodosStatusDiferentesPendente() {
     return true;
 }
 
+
 function atualizarTabela() {
     var tabela = document.getElementById("tabelaEquipamentos");
-    tabela.innerHTML = "<tr><th>Código do Equipamento</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
-    for (var i = 0; i < equipamentos.length; i++) {
-        var equipamento = equipamentos[i];
-        tabela.innerHTML += "<tr><td>" + equipamento.codigo + "</td><td>" + equipamento.status + "</td><td>" + equipamento.setor + "</td><td><button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button></td><td><button class='btn-erro' onclick='alterarStatusErro(" + i + ")'>Erro</button></td><td><button class='btn-deletar' onclick='deletarEquipamento(" + i + ")'>Deletar</button></td></tr>";
+    
+    // Verifica se é a versão mobile ou web
+    if (window.innerWidth <= 834) {
+        // Versão mobile
+        tabela.innerHTML = "";
+        for (var i = 0; i < equipamentos.length; i++) {
+            var equipamento = equipamentos[i];
+            var linha = "<tr>";
+            linha += "<td><b>Código: </b> " + " " + equipamento.codigo + "</td>";
+            linha += "<td><b>Status: </b> " + " " + equipamento.status + "</td>";
+            linha += "<td><b>Setor: </b> " + " " + equipamento.setor + "</td>";
+            linha += "<td colspan='3' class='btn-group'>";
+            linha += "<button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button>";
+            linha += "<button class='btn-erro' onclick='alterarStatusErro(" + i + ")'>Erro</button>";
+            linha += "<button class='btn-deletar' onclick='deletarEquipamento(" + i + ")'>Deletar</button>";
+            linha += "</td>";
+            linha += "</tr>";
+            tabela.innerHTML += linha;
+        }
+    } else {
+        // Versão web
+        tabela.innerHTML = "<tr><th>Código do Equipamento</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
+        for (var i = 0; i < equipamentos.length; i++) {
+            var equipamento = equipamentos[i];
+            var linhaWeb = "<tr>";
+            linhaWeb += "<td>" + equipamento.codigo + "</td>";
+            linhaWeb += "<td>" + equipamento.status + "</td>";
+            linhaWeb += "<td>" + equipamento.setor + "</td>";
+            linhaWeb += "<td><button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button></td>";
+            linhaWeb += "<td><button class='btn-erro' onclick='alterarStatusErro(" + i + ")'>Erro</button></td>";
+            linhaWeb += "<td><button class='btn-deletar' onclick='deletarEquipamento(" + i + ")'>Deletar</button></td>";
+            linhaWeb += "</tr>";
+            tabela.innerHTML += linhaWeb;
+        }
     }
 }
-
 
 function adicionarComEnter(event) {
     if (event.key === "Enter") {
         adicionarEquipamento();
     }
 }
-
-
 
 // Função para encerrar a animação do botão "Transportar"
 function encerrarAnimacaoTransportar() {

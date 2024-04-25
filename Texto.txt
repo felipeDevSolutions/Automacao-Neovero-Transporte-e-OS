@@ -1,0 +1,290 @@
+index.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="animacao.css">
+    <title>Magic Click</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Magic Click</h1>
+        <h3>Tecnologia gerando produtividade</h3>
+    </div>
+    <div class="main">
+        <div class="right-container">
+            <div class="lista">
+                <label for="setor">Selecione o Setor:</label>
+                <select id="setor">
+                    <option value="">Selecione um setor...</option>
+                    <option value="3NOR">3º NORTE</option>
+                    <option value="3SUL">3º SUL</option>
+                    <option value="4NOR">4º NORTE</option>
+                    <option value="4SUL">4º SUL</option>
+                    <option value="5NOR">5º NORTE</option>
+                    <option value="5SUL">5º SUL</option>
+                    <option value="6NOR">6º NORTE</option>
+                    <option value="6SUL">6 SUL</option>
+                    <option value="7NOR">7º NORTE</option>
+                    <option value="7SUL">7º SUL (ONCOLOGIA / TRANSPLANTE / HOSPITAL DIA)</option>
+                    <option value="8SUL">8 SUL (CARDIOLOGIA)</option>
+                    <option value="AGHE">AGÊNCIA TRANSFUSIONAL HEMOCE</option>
+                    <option value="BINF">BOMBA DE INFUSÃO (EXCLUSIVO PARA BOMBAS DE INFUSÃO E DE DIETA)</option>
+                    <option value="CEEQ">CENTRAL DE EQUIPAMENTOS</option>
+                    <option value="BLCI">CENTRO CIRÚRGICO</option>
+                    <option value="CEDI">CENTRO DE DISTRIBUIÇÃO</option>
+                    <option value="EDCO">CENTRO DE ESTUDOS PONTES NETO - CEPN</option>
+                    <option value="IMAG">CENTRO DE IMAGEM</option>
+                    <option value="CEME">CENTRO DE MATERIAL ESTERILIZADO</option>
+                    <option value="EMER">EMERGÊNCIA</option>
+                    <option value="ENDO">ENDOSCOPIA</option>
+                    <option value="ENGE">ENGENHARIA CLÍNICA - HU</option>
+                    <option value="ELOC">EQUIPAMENTOS DE TERCEIROS (LOCADOS E COMODATOS)</option>
+                    <option value="FARM">FARMÁCIA CLÍNICA</option>
+                    <option value="FISI">FISIOTERAPIA</option>
+                    <option value="GLIC">GLICOSÍMETROS (EXCLUSIVO PARA CADASTRO DE GLICOSÍMETROS)</option>
+                    <option value="HDSE">HEMODIÁLISE</option>
+                    <option value="HEMO">HEMODINÂMICA</option>
+                    <option value="HDPN">HOSPITAL DIA</option>
+                    <option value="INTE">INTERNAÇÃO - 2º ANDAR</option>
+                    <option value="LABHP">LABORATORIO HERMES PARDINI</option>
+                    <option value="LAMK">LABORATÓRIO MIKROS</option>
+                    <option value="LAHR">LABORATÓRIO UNIMED FORTALEZA</option>
+                    <option value="METR">MEDICINA PREVENTIVA DO HU - AIS</option>
+                    <option value="PADR">PADRÕES PARA CALIBRAÇÃO</option>
+                    <option value="SREC">SALA DE RECUPERAÇÃO</option>
+                    <option value="SADT">SERVIÇO DE APOIO, DIAGNÓSTICO E TERAPÊUTICA (SADT)</option>
+                    <option value="SMST">SESMT</option>
+                    <option value="TEMP">TEMPORÁRIO</option>
+                    <option value="TEPA">TEMPORARIO PARDINI</option>
+                    <option value="3NUT">UTI 3º NORTE</option>
+                    <option value="3SUT">UTI 3º SUL</option>
+                    <option value="4SUT">UTI 4º SUL</option>
+                    <option value="UTI8">UTI 8° NORTE</option>
+                    <option value="UTAC">UTI ALTA COMPLEXIDADE</option>
+                    <option value="VENT">VENTILADOR PULMONAR</option>
+                    <option value="ESEC">Z - ESTOQUE - ENGENHARIA CLÍNICA</option>
+                    <option value="ACES">Z - GERAL (USO INTERNO ENG: EXCLUSIVO PARA CADASTRO DE ACESSÓRIOS)</option>
+                    <option value="EINA">Z (USO INTERNO ENG: EQUIPAMENTOS EM PROCESSO DE INATIVAÇÃO)</option>
+                    <option value="INVE">Z (USO INTERNO ENG: INVENTÁRIO - HU)</option>                    
+                </select>
+            </div>
+            <div class="input-codigo">
+                <label for="codigo">Código do Equipamento:</label>
+                <input type="text" id="codigo" onkeypress="adicionarComEnter(event)">
+                <button onclick="adicionarEquipamento()">Adicionar</button>
+            </div>
+            <div class="table">
+                <table border="1" id="tabelaEquipamentos">
+                    <tr>
+                        <th>Código do Equipamento</th>
+                        <th>Status</th>
+                        <th>Setor</th>
+                        <th>Ok</th>
+                        <th>Erro</th>
+                        <th>Deletar</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="left-container">
+            <button id="transportar-btn"><i class="fas fa-exchange-alt"></i>Transportar</button>
+            <button id="os-btn"><i class="fas fa-wrench"></i>Abrir OS Corretiva</button>
+        </div>
+    </div>
+    <div class="rodape">
+        <p>Desenvolvido por Felipe R. Costa</p>
+    </div>
+    <script src="script.js"></script>
+    <script src="transportar.js"></script>
+    <script src="abrirOsCorretiva.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+script.js:
+var equipamentos = [];
+
+function adicionarEquipamento() {
+    var codigo = document.getElementById("codigo").value;
+    var setor = document.getElementById("setor").value;
+    if (codigo === "") {
+        alert("Por favor, informe o código do equipamento.");
+        return;
+    }
+    // Verifica se o código já existe na lista de equipamentos
+    for (var i = 0; i < equipamentos.length; i++) {
+        if (equipamentos[i].codigo === codigo) {
+            alert("Já existe um equipamento com este código.");
+            return;
+        }
+    }
+    equipamentos.push({ codigo: codigo, status: "Pendente", setor: setor });
+    atualizarTabela();
+    document.getElementById("codigo").value = "";
+
+    // Inicia a animação se necessário
+    if (!verificarTodosStatusDiferentesPendente()) {
+        iniciarAnimacaoTransportar();
+    }
+}
+
+function deletarEquipamento(index) {
+    equipamentos.splice(index, 1);
+    atualizarTabela();
+}
+
+function alterarStatus(index) {
+    equipamentos[index].status = "OK";
+    atualizarTabela();
+
+    // Verifica se todos os status são diferentes de Pendente e encerra a animação se necessário
+    if (verificarTodosStatusDiferentesPendente()) {
+        encerrarAnimacaoTransportar();
+    }
+}
+
+function alterarStatusErro(index) {
+    equipamentos[index].status = "Erro";
+    atualizarTabela();
+
+    // Verifica se todos os status são diferentes de Pendente e encerra a animação se necessário
+    if (verificarTodosStatusDiferentesPendente()) {
+        encerrarAnimacaoTransportar();
+    }
+}
+
+// Função para verificar se todos os status são diferentes de Pendente
+function verificarTodosStatusDiferentesPendente() {
+    for (var i = 0; i < equipamentos.length; i++) {
+        if (equipamentos[i].status === "Pendente") {
+            return false;
+        }
+    }
+    return true;
+}
+
+function atualizarTabela() {
+    var tabela = document.getElementById("tabelaEquipamentos");
+    tabela.innerHTML = "<tr><th>Código do Equipamento</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
+    for (var i = 0; i < equipamentos.length; i++) {
+        var equipamento = equipamentos[i];
+        tabela.innerHTML += "<tr><td>" + equipamento.codigo + "</td><td>" + equipamento.status + "</td><td>" + equipamento.setor + "</td><td><button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button></td><td><button class='btn-erro' onclick='alterarStatusErro(" + i + ")'>Erro</button></td><td><button class='btn-deletar' onclick='deletarEquipamento(" + i + ")'>Deletar</button></td></tr>";
+    }
+}
+
+
+function adicionarComEnter(event) {
+    if (event.key === "Enter") {
+        adicionarEquipamento();
+    }
+}
+
+
+
+// Função para encerrar a animação do botão "Transportar"
+function encerrarAnimacaoTransportar() {
+    var btn = document.getElementById("transportar-btn");
+    btn.innerHTML = "<i class='fas fa-exchange-alt'></i> Transportar";
+    btn.classList.remove("animacao-transporte");
+}
+
+
+
+
+transportar.js:
+document.getElementById("transportar-btn").addEventListener("click", function() {
+    // Verifica se há linhas na tabela
+    if (document.getElementById("tabelaEquipamentos").rows.length <= 1) {
+        alert("Por favor, insira pelo menos um equipamento na tabela antes de transportar.");
+        return;
+    }
+    
+    var btn = this; // Captura o botão atual
+    var iconeHTML = btn.innerHTML; // Armazena o HTML do ícone
+
+    // Verifica se o botão está atualmente em estado de transporte
+    var transportando = btn.innerText === "Transportando";
+
+    if (!transportando) {
+        // Altera o texto do botão para "Transportando" se não estiver atualmente em transporte
+        btn.innerHTML = "<i class='fas fa-spinner'></i> Transportando";
+
+        // Adiciona a classe de animação ao botão
+        this.classList.toggle("animacao-transporte");
+
+        // Aqui você pode adicionar qualquer lógica relacionada ao processo de transporte
+
+        // Por exemplo, você pode mostrar uma mensagem de sucesso após um determinado tempo
+        var intervalId = setInterval(function() {
+            // Verifica se todos os status são diferentes de Pendente
+            if (verificarTodosStatusDiferentesPendente()) {
+                // Remove a classe de animação
+                btn.classList.remove("animacao-transporte");
+
+                // Restaura o texto e o ícone original
+                btn.innerHTML = iconeHTML;
+
+                // Encerra o intervalo
+                clearInterval(intervalId);
+
+                // Mostra mensagem de sucesso
+                alert("Processo de transporte concluído!");
+            }
+        }, 1000); // Verifica a cada segundo
+    }
+});
+
+
+
+
+
+abrirOsCorretiva.js:
+document.getElementById("os-btn").addEventListener("click", function() {
+    // Verifica se há linhas na tabela
+    if (document.getElementById("tabelaEquipamentos").rows.length <= 1) {
+        alert("Por favor, insira pelo menos um equipamento na tabela antes de abrir a OS Corretiva.");
+        return;
+    }
+    
+    var btn = this; // Captura o botão atual
+    var iconeHTML = btn.innerHTML; // Armazena o HTML do ícone
+
+    // Verifica se o botão está atualmente em estado de abertura de OS
+    var abrindoOS = btn.innerText === "Abrindo OS Corretiva";
+
+    if (!abrindoOS) {
+        // Altera o texto do botão para "Abrindo OS Corretiva" se não estiver atualmente abrindo OS
+        btn.innerHTML = "<i class='fas fa-cogs'></i> Abrindo OS Corretiva";
+
+        // Adiciona a classe de animação ao botão
+        this.classList.toggle("animacao-transporte");
+
+        // Aqui você pode adicionar qualquer lógica relacionada ao processo de abertura de OS
+
+        // Por exemplo, você pode mostrar uma mensagem de sucesso após um determinado tempo
+        var intervalId = setInterval(function() {
+            // Verifica se todos os status são diferentes de Pendente
+            if (verificarTodosStatusDiferentesPendente()) {
+                // Remove a classe de animação
+                btn.classList.remove("animacao-transporte");
+
+                // Restaura o texto e o ícone original
+                btn.innerHTML = iconeHTML;
+
+                // Encerra o intervalo
+                clearInterval(intervalId);
+
+                // Mostra mensagem de sucesso
+                alert("OS Corretiva aberta com sucesso!");
+            }
+        }, 1000); // Verifica a cada segundo
+    }
+});

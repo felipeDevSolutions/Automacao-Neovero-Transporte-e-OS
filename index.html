@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="animacao.css">
     <title>Magic Click</title>
@@ -77,7 +78,7 @@
                 <button onclick="adicionarEquipamento()">Adicionar</button>
             </div>
             <div class="table">
-                <table border="1" id="tabelaEquipamentos">
+                <table id="tabelaEquipamentos">
                     <tr>
                         <th>Código do Equipamento</th>
                         <th>Status</th>
@@ -92,6 +93,7 @@
         <div class="left-container">
             <button id="transportar-btn"><i class="fas fa-exchange-alt"></i>Transportar</button>
             <button id="os-btn"><i class="fas fa-wrench"></i>Abrir OS Corretiva</button>
+            <button id="exportar-btn" onclick="exportarTabelaXLSX()">Exportar planilha</button>
         </div>
     </div>
     <div class="rodape">
@@ -100,5 +102,6 @@
     <script src="script.js"></script>
     <script src="transportar.js"></script>
     <script src="abrirOsCorretiva.js"></script>
+    <script src="exportarTabelaXLSX.js"></script>
 </body>
 </html>
