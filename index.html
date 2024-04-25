@@ -73,14 +73,15 @@
                 </select>
             </div>
             <div class="input-codigo">
-                <label for="codigo">Código do Equipamento:</label>
+                <label for="codigo">Equipamento:</label>
                 <input type="text" id="codigo" onkeypress="adicionarComEnter(event)">
                 <button onclick="adicionarEquipamento()">Adicionar</button>
+                <button id="carregar-tabela-btn" onclick="carregarTabela()">Importar</button>
             </div>
             <div class="table">
                 <table id="tabelaEquipamentos">
                     <tr>
-                        <th>Código do Equipamento</th>
+                        <th>Código</th>
                         <th>Status</th>
                         <th>Setor</th>
                         <th>Ok</th>
@@ -103,5 +104,6 @@
     <script src="transportar.js"></script>
     <script src="abrirOsCorretiva.js"></script>
     <script src="exportarTabelaXLSX.js"></script>
+    <script src="carregarTabela.js"></script>
 </body>
 </html>

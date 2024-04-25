@@ -66,14 +66,15 @@ function atualizarTabela() {
     // Verifica se é a versão mobile ou web
     if (window.innerWidth <= 834) {
         // Versão mobile
-        tabela.innerHTML = "";
+        tabela.innerHTML = "<thead><tr><th>Código</th><th>Status</th><th>Setor</th><th>Opções</th></tr></thead>";
+        tabela.innerHTML += "<tbody>";
         for (var i = 0; i < equipamentos.length; i++) {
             var equipamento = equipamentos[i];
             var linha = "<tr>";
-            linha += "<td><b>Código: </b> " + " " + equipamento.codigo + "</td>";
-            linha += "<td><b>Status: </b> " + " " + equipamento.status + "</td>";
-            linha += "<td><b>Setor: </b> " + " " + equipamento.setor + "</td>";
-            linha += "<td colspan='3' class='btn-group'>";
+            linha += "<td>" + equipamento.codigo + "</td>";
+            linha += "<td>" + equipamento.status + "</td>";
+            linha += "<td>" + equipamento.setor + "</td>";
+            linha += "<td class='btn-group'>";
             linha += "<button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button>";
             linha += "<button class='btn-erro' onclick='alterarStatusErro(" + i + ")'>Erro</button>";
             linha += "<button class='btn-deletar' onclick='deletarEquipamento(" + i + ")'>Deletar</button>";
@@ -81,9 +82,11 @@ function atualizarTabela() {
             linha += "</tr>";
             tabela.innerHTML += linha;
         }
+        tabela.innerHTML += "</tbody>";
+
     } else {
         // Versão web
-        tabela.innerHTML = "<tr><th>Código do Equipamento</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
+        tabela.innerHTML = "<tr><th>Código</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
         for (var i = 0; i < equipamentos.length; i++) {
             var equipamento = equipamentos[i];
             var linhaWeb = "<tr>";

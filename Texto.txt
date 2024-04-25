@@ -5,6 +5,7 @@ index.html:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="animacao.css">
     <title>Magic Click</title>
@@ -76,9 +77,10 @@ index.html:
                 <label for="codigo">Código do Equipamento:</label>
                 <input type="text" id="codigo" onkeypress="adicionarComEnter(event)">
                 <button onclick="adicionarEquipamento()">Adicionar</button>
+                <button id="carregar-tabela-btn" onclick="carregarTabela()">Importar Tabela</button>
             </div>
             <div class="table">
-                <table border="1" id="tabelaEquipamentos">
+                <table id="tabelaEquipamentos">
                     <tr>
                         <th>Código do Equipamento</th>
                         <th>Status</th>
@@ -93,6 +95,7 @@ index.html:
         <div class="left-container">
             <button id="transportar-btn"><i class="fas fa-exchange-alt"></i>Transportar</button>
             <button id="os-btn"><i class="fas fa-wrench"></i>Abrir OS Corretiva</button>
+            <button id="exportar-btn" onclick="exportarTabelaXLSX()">Exportar planilha</button>
         </div>
     </div>
     <div class="rodape">
@@ -101,12 +104,10 @@ index.html:
     <script src="script.js"></script>
     <script src="transportar.js"></script>
     <script src="abrirOsCorretiva.js"></script>
+    <script src="exportarTabelaXLSX.js"></script>
+    <script src="carregarTabela.js"></script>
 </body>
 </html>
-
-
-
-
 
 
 script.js:
@@ -171,15 +172,45 @@ function verificarTodosStatusDiferentesPendente() {
     return true;
 }
 
+
 function atualizarTabela() {
     var tabela = document.getElementById("tabelaEquipamentos");
-    tabela.innerHTML = "<tr><th>Código do Equipamento</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
-    for (var i = 0; i < equipamentos.length; i++) {
-        var equipamento = equipamentos[i];
-        tabela.innerHTML += "<tr><td>" + equipamento.codigo + "</td><td>" + equipamento.status + "</td><td>" + equipamento.setor + "</td><td><button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button></td><td><button class='btn-erro' onclick='alterarStatusErro(" + i + ")'>Erro</button></td><td><button class='btn-deletar' onclick='deletarEquipamento(" + i + ")'>Deletar</button></td></tr>";
+    
+    // Verifica se é a versão mobile ou web
+    if (window.innerWidth <= 834) {
+        // Versão mobile
+        tabela.innerHTML = "";
+        for (var i = 0; i < equipamentos.length; i++) {
+            var equipamento = equipamentos[i];
+            var linha = "<tr>";
+            linha += "<td><b>Código: </b> " + " " + equipamento.codigo + "</td>";
+            linha += "<td><b>Status: </b> " + " " + equipamento.status + "</td>";
+            linha += "<td><b>Setor: </b> " + " " + equipamento.setor + "</td>";
+            linha += "<td colspan='3' class='btn-group'>";
+            linha += "<button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button>";
+            linha += "<button class='btn-erro' onclick='alterarStatusErro(" + i + ")'>Erro</button>";
+            linha += "<button class='btn-deletar' onclick='deletarEquipamento(" + i + ")'>Deletar</button>";
+            linha += "</td>";
+            linha += "</tr>";
+            tabela.innerHTML += linha;
+        }
+    } else {
+        // Versão web
+        tabela.innerHTML = "<tr><th>Código</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
+        for (var i = 0; i < equipamentos.length; i++) {
+            var equipamento = equipamentos[i];
+            var linhaWeb = "<tr>";
+            linhaWeb += "<td>" + equipamento.codigo + "</td>";
+            linhaWeb += "<td>" + equipamento.status + "</td>";
+            linhaWeb += "<td>" + equipamento.setor + "</td>";
+            linhaWeb += "<td><button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button></td>";
+            linhaWeb += "<td><button class='btn-erro' onclick='alterarStatusErro(" + i + ")'>Erro</button></td>";
+            linhaWeb += "<td><button class='btn-deletar' onclick='deletarEquipamento(" + i + ")'>Deletar</button></td>";
+            linhaWeb += "</tr>";
+            tabela.innerHTML += linhaWeb;
+        }
     }
 }
-
 
 function adicionarComEnter(event) {
     if (event.key === "Enter") {
@@ -187,15 +218,12 @@ function adicionarComEnter(event) {
     }
 }
 
-
-
 // Função para encerrar a animação do botão "Transportar"
 function encerrarAnimacaoTransportar() {
     var btn = document.getElementById("transportar-btn");
     btn.innerHTML = "<i class='fas fa-exchange-alt'></i> Transportar";
     btn.classList.remove("animacao-transporte");
 }
-
 
 
 
@@ -245,7 +273,6 @@ document.getElementById("transportar-btn").addEventListener("click", function() 
 
 
 
-
 abrirOsCorretiva.js:
 document.getElementById("os-btn").addEventListener("click", function() {
     // Verifica se há linhas na tabela
@@ -288,3 +315,66 @@ document.getElementById("os-btn").addEventListener("click", function() {
         }, 1000); // Verifica a cada segundo
     }
 });
+
+
+
+exportarTabelaXLSX.js:
+function exportarTabelaXLSX() {
+    var tabela = document.getElementById("tabelaEquipamentos");
+    var wb = XLSX.utils.table_to_book(tabela, {sheet: "Equipamentos"});
+    XLSX.writeFile(wb, "equipamentos.xlsx");
+}
+
+
+
+carregarTabela.js:
+function carregarTabela() {
+    // Cria um input do tipo file para selecionar o arquivo XLSX
+    var input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.xlsx';
+    
+    // Adiciona um evento para capturar o arquivo selecionado
+    input.onchange = function(event) {
+        var file = event.target.files[0];
+        
+        // Verifica se um arquivo foi selecionado
+        if (file) {
+            // Cria um objeto FileReader para ler o conteúdo do arquivo
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var data = new Uint8Array(e.target.result);
+                
+                // Carrega o arquivo XLSX usando a biblioteca XLSX.js
+                var workbook = XLSX.read(data, { type: 'array' });
+                
+                // Obtém a primeira planilha do arquivo XLSX
+                var firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                
+                // Converte os dados da planilha em um array de objetos JavaScript
+                var jsonData = XLSX.utils.sheet_to_json(firstSheet);
+                
+                // Limpa a lista de equipamentos antes de carregar os novos dados
+                equipamentos = [];
+                
+                // Adiciona os dados carregados à lista de equipamentos
+                jsonData.forEach(function(row) {
+                    equipamentos.push({
+                        codigo: row['Codigo'],
+                        status: row['Status'],
+                        setor: row['Setor']
+                    });
+                });
+                
+                // Atualiza a tabela com os novos dados
+                atualizarTabela();
+            };
+            
+            // Lê o conteúdo do arquivo como um array buffer
+            reader.readAsArrayBuffer(file);
+        }
+    };
+    
+    // Dispara o clique no input para abrir a janela de seleção de arquivo
+    input.click();
+}
