@@ -1,15 +1,18 @@
 function carregarTabela() {
-    // Cria um input do tipo file para selecionar o arquivo XLSX
+    // Cria um input do tipo file para selecionar os arquivos XLSX
     var input = document.createElement('input');
     input.type = 'file';
     input.accept = '.xlsx';
+    input.multiple = true; // Permite seleção de múltiplos arquivos
     
-    // Adiciona um evento para capturar o arquivo selecionado
+    // Adiciona um evento para capturar os arquivos selecionados
     input.onchange = function(event) {
-        var file = event.target.files[0];
+        var files = event.target.files;
         
-        // Verifica se um arquivo foi selecionado
-        if (file) {
+        // Itera sobre cada arquivo selecionado
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            
             // Cria um objeto FileReader para ler o conteúdo do arquivo
             var reader = new FileReader();
             reader.onload = function(e) {
@@ -24,10 +27,7 @@ function carregarTabela() {
                 // Converte os dados da planilha em um array de objetos JavaScript
                 var jsonData = XLSX.utils.sheet_to_json(firstSheet);
                 
-                // Limpa a lista de equipamentos antes de carregar os novos dados
-                equipamentos = [];
-                
-                // Adiciona os dados carregados à lista de equipamentos
+                // Adiciona os dados carregados à lista de equipamentos sem limpar os dados antigos
                 jsonData.forEach(function(row) {
                     equipamentos.push({
                         codigo: row['Código'],

@@ -181,7 +181,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s;
     padding: 5px;
 }
 
@@ -256,6 +256,34 @@ body {
     display: none;
 }
 
+#importar-btn{
+    background-color: #00512b;
+}
+#importar-btn:hover{
+    background-color: #007b42;
+    border-color: #a7ffa9;
+}
+
+#exportar-btn-web{
+    margin-bottom: 0;
+    background-color: #00512b;
+}
+
+#exportar-btn-web:hover{
+    background-color: #007b42;
+    border-color: #a7ffa8b1;
+
+}
+
+#carregar-tabela-btn{
+    background-color: #00512b;
+}
+
+#carregar-tabela-btn:hover{
+    background-color: #007b42;
+    border-color: #a7ffa9;
+}
+
 .rodape{
     display: flex;
     justify-content: center;
@@ -286,6 +314,12 @@ body {
         padding: 10px;
         gap: 10px;
     }
+
+    .input-codigo label{
+        display: none;
+    }
+
+    
 
     table{
         width: 100%;
@@ -368,6 +402,10 @@ body {
 
     /* Estilo específico para o ícone de troca/seta */
     #transportar-btn {
+        display: none;
+    }
+
+    #exportar-btn-web{
         display: none;
     }
 

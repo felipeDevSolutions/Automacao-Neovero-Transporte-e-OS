@@ -59,6 +59,28 @@ function verificarTodosStatusDiferentesPendente() {
     return true;
 }
 
+// Verifica se está na versão mobile (largura de tela menor que 834px)
+function isMobile() {
+    return window.innerWidth < 834;
+}
+
+// Atualiza o placeholder do input de acordo com a versão mobile ou desktop
+function atualizarPlaceholderInput() {
+    var inputCodigo = document.getElementById("codigo");
+    if (isMobile()) {
+        inputCodigo.placeholder = "Código do Equipamento";
+    } else {
+        inputCodigo.placeholder = "";
+    }
+}
+
+// Adiciona um ouvinte de evento para atualizar o placeholder quando a tela for redimensionada
+window.addEventListener("resize", atualizarPlaceholderInput);
+
+// Chama a função para definir o placeholder inicialmente
+atualizarPlaceholderInput();
+
+
 
 function atualizarTabela() {
     var tabela = document.getElementById("tabelaEquipamentos");
