@@ -10,96 +10,131 @@
     <title>Magic Click</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Smart Flow</h1>
-        <h3>Tecnologia gerando produtividade</h3>
-    </div>
-    <div class="main">
-        <div class="right-container">
-            <div class="lista">
-                <label for="setor">Selecione o Setor:</label>
-                <select id="setor">
-                    <option value="">Selecione um setor...</option>
-                    <option value="3NOR">3º NORTE</option>
-                    <option value="3SUL">3º SUL</option>
-                    <option value="4NOR">4º NORTE</option>
-                    <option value="4SUL">4º SUL</option>
-                    <option value="5NOR">5º NORTE</option>
-                    <option value="5SUL">5º SUL</option>
-                    <option value="6NOR">6º NORTE</option>
-                    <option value="6SUL">6 SUL</option>
-                    <option value="7NOR">7º NORTE</option>
-                    <option value="7SUL">7º SUL</option>
-                    <option value="8SUL">8 SUL</option>
-                    <option value="AGHE">HEMOCE</option>
-                    <option value="BINF">BOMBA DE INFUSÃO</option>
-                    <option value="CEEQ">CENTRAL DE EQUIPAMENTOS</option>
-                    <option value="BLCI">CENTRO CIRÚRGICO</option>
-                    <option value="CEDI">CENTRO DE DISTRIBUIÇÃO</option>
-                    <option value="EDCO">CENTRO DE ESTUDOS</option>
-                    <option value="IMAG">CENTRO DE IMAGEM</option>
-                    <option value="CEME">CME</option>
-                    <option value="EMER">EMERGÊNCIA</option>
-                    <option value="ENDO">ENDOSCOPIA</option>
-                    <option value="ENGE">ENGENHARIA CLÍNICA</option>
-                    <option value="ELOC">EQUIPAMENTOS DE TERCEIROS</option>
-                    <option value="FARM">FARMÁCIA CLÍNICA</option>
-                    <option value="FISI">FISIOTERAPIA</option>
-                    <option value="GLIC">GLICOSÍMETROS</option>
-                    <option value="HDSE">HEMODIÁLISE</option>
-                    <option value="HEMO">HEMODINÂMICA</option>
-                    <option value="HDPN">HOSPITAL DIA</option>
-                    <option value="INTE">INTERNAÇÃO</option>
-                    <option value="LABHP">LAB PARDINI</option>
-                    <option value="LAMK">LAB MIKROS</option>
-                    <option value="LAHR">LAB UNIMED FORTALEZA</option>
-                    <option value="METR">MEDICINA PREVENTIVA - AIS</option>
-                    <option value="PADR">PADRÕES PARA CALIBRAÇÃO</option>
-                    <option value="SREC">SALA DE RECUPERAÇÃO</option>
-                    <option value="SADT">SADT</option>
-                    <option value="SMST">SESMT</option>
-                    <option value="TEMP">TEMPORÁRIO</option>
-                    <option value="TEPA">TEMPORARIO PARDINI</option>
-                    <option value="3NUT">UTI 3º NORTE</option>
-                    <option value="3SUT">UTI 3º SUL</option>
-                    <option value="4SUT">UTI 4º SUL</option>
-                    <option value="UTI8">UTI 8° NORTE</option>
-                    <option value="UTAC">UTI ALTA COMPLEXIDADE</option>
-                    <option value="VENT">VENTILADOR PULMONAR</option>
-                    <option value="ESEC">Z - ESTOQUE - ENGENHARIA CLÍNICA</option>
-                    <option value="ACES">Z - GERAL</option>
-                    <option value="EINA">Z (EINA)</option>
-                    <option value="INVE">Z (INVENTÁRIO - HU)</option>                    
-                </select>
+    <div class="app">
+        <div class="header">
+            <h1>Smart Flow</h1>
+            <h3>Tecnologia gerando produtividade</h3>
+        </div>
+        <div class="main">
+            <div class="right-container">
+                <div class="lista">
+                    <label for="setor">Selecione o Setor:</label>
+                    <select id="setor">
+                        <option value="">Selecione um setor...</option>
+                        <option value="3NOR">3º NORTE</option>
+                        <option value="3SUL">3º SUL</option>
+                        <option value="4NOR">4º NORTE</option>
+                        <option value="4SUL">4º SUL</option>
+                        <option value="5NOR">5º NORTE</option>
+                        <option value="5SUL">5º SUL</option>
+                        <option value="6NOR">6º NORTE</option>
+                        <option value="6SUL">6 SUL</option>
+                        <option value="7NOR">7º NORTE</option>
+                        <option value="7SUL">7º SUL</option>
+                        <option value="8SUL">8 SUL</option>
+                        <option value="AGHE">HEMOCE</option>
+                        <option value="BINF">BOMBA DE INFUSÃO</option>
+                        <option value="CEEQ">CENTRAL DE EQUIPAMENTOS</option>
+                        <option value="BLCI">CENTRO CIRÚRGICO</option>
+                        <option value="CEDI">CENTRO DE DISTRIBUIÇÃO</option>
+                        <option value="EDCO">CENTRO DE ESTUDOS</option>
+                        <option value="IMAG">CENTRO DE IMAGEM</option>
+                        <option value="CEME">CME</option>
+                        <option value="EMER">EMERGÊNCIA</option>
+                        <option value="ENDO">ENDOSCOPIA</option>
+                        <option value="ENGE">ENGENHARIA CLÍNICA</option>
+                        <option value="ELOC">EQUIPAMENTOS DE TERCEIROS</option>
+                        <option value="FARM">FARMÁCIA CLÍNICA</option>
+                        <option value="FISI">FISIOTERAPIA</option>
+                        <option value="GLIC">GLICOSÍMETROS</option>
+                        <option value="HDSE">HEMODIÁLISE</option>
+                        <option value="HEMO">HEMODINÂMICA</option>
+                        <option value="HDPN">HOSPITAL DIA</option>
+                        <option value="INTE">INTERNAÇÃO</option>
+                        <option value="LABHP">LAB PARDINI</option>
+                        <option value="LAMK">LAB MIKROS</option>
+                        <option value="LAHR">LAB UNIMED FORTALEZA</option>
+                        <option value="METR">MEDICINA PREVENTIVA - AIS</option>
+                        <option value="PADR">PADRÕES PARA CALIBRAÇÃO</option>
+                        <option value="SREC">SALA DE RECUPERAÇÃO</option>
+                        <option value="SADT">SADT</option>
+                        <option value="SMST">SESMT</option>
+                        <option value="TEMP">TEMPORÁRIO</option>
+                        <option value="TEPA">TEMPORARIO PARDINI</option>
+                        <option value="3NUT">UTI 3º NORTE</option>
+                        <option value="3SUT">UTI 3º SUL</option>
+                        <option value="4SUT">UTI 4º SUL</option>
+                        <option value="UTI8">UTI 8° NORTE</option>
+                        <option value="UTAC">UTI ALTA COMPLEXIDADE</option>
+                        <option value="VENT">VENTILADOR PULMONAR</option>
+                        <option value="ESEC">Z - ESTOQUE - ENGENHARIA CLÍNICA</option>
+                        <option value="ACES">Z - GERAL</option>
+                        <option value="EINA">Z (EINA)</option>
+                        <option value="INVE">Z (INVENTÁRIO - HU)</option>                    
+                    </select>
+                </div>
+                <div class="inputs">
+                    <div class="input-codigo">
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                id="idec"
+                                onkeypress="adicionarComEnter(event)"
+                                placeholder="IDEC"
+                            />
+                        </div>
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                id="nSerie"
+                                onkeypress="adicionarComEnter(event)"
+                                placeholder="N° de Série"
+                            />
+                        </div>
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                id="patrimonio"
+                                onkeypress="adicionarComEnter(event)"
+                                placeholder="Patrimônio"
+                            />
+                        </div>
+                    </div>
+                    <div class="div-button-mobile">
+                        <button id="importar-btn" onclick="adicionarEquipamento()">Adicionar</button>
+                        <button id="carregar-tabela-btn" onclick="carregarTabela()">Importar</button>
+                        <button id="exportar-btn-web" onclick="exportarTabelaXLSX()">Exportar planilha</button>
+                    </div>
+                </div>
+                <div class="div-button">
+                    <button id="importar-btn" onclick="adicionarEquipamento()">Adicionar</button>
+                    <button id="carregar-tabela-btn" onclick="carregarTabela()">Importar</button>
+                    <button id="exportar-btn-web" onclick="exportarTabelaXLSX()">Exportar planilha</button>
+                </div>
+                <div class="table">
+                    <table id="tabelaEquipamentos">
+                        <tr>
+                            <th>Idec</th>
+                            <th>N Série</th>
+                            <th>Patrimônio</th>
+                            <th>Status</th>
+                            <th>Setor</th>
+                            <th>Ok</th>
+                            <th>Erro</th>
+                            <th>Deletar</th>
+                        </tr>
+                    </table>
+                </div>
             </div>
-            <div class="input-codigo">
-                <label for="codigo">Equipamento:</label>
-                <input type="text" id="codigo" onkeypress="adicionarComEnter(event)">
-                <button id="importar-btn" onclick="adicionarEquipamento()">Adicionar</button>
-                <button id="carregar-tabela-btn" onclick="carregarTabela()">Importar</button>
-                <button id="exportar-btn-web" onclick="exportarTabelaXLSX()">Exportar planilha</button>
-            </div>
-            <div class="table">
-                <table id="tabelaEquipamentos">
-                    <tr>
-                        <th>Código</th>
-                        <th>Status</th>
-                        <th>Setor</th>
-                        <th>Ok</th>
-                        <th>Erro</th>
-                        <th>Deletar</th>
-                    </tr>
-                </table>
+            <div class="left-container">
+                <button id="transportar-btn"><i class="fas fa-exchange-alt"></i>Transportar</button>
+                <button id="os-btn"><i class="fas fa-wrench"></i>Abrir OS Corretiva</button>
+                <button id="exportar-btn" onclick="exportarTabelaXLSX()">Exportar planilha</button>
             </div>
         </div>
-        <div class="left-container">
-            <button id="transportar-btn"><i class="fas fa-exchange-alt"></i>Transportar</button>
-            <button id="os-btn"><i class="fas fa-wrench"></i>Abrir OS Corretiva</button>
-            <button id="exportar-btn" onclick="exportarTabelaXLSX()">Exportar planilha</button>
+        <div class="rodape">
+            <p>Desenvolvido por Felipe R. Costa</p>
         </div>
-    </div>
-    <div class="rodape">
-        <p>Desenvolvido por Felipe R. Costa</p>
     </div>
     <script src="script.js"></script>
     <script src="transportar.js"></script>

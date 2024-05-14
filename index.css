@@ -6,8 +6,7 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+
     background-color: rgb(20, 20, 20);
 }
 
@@ -32,13 +31,16 @@ body {
     gap: 15px;
     flex: 1;
     overflow-y: auto;
+    
 }
 
 .right-container {
     display: flex;
+    position: relative;
     flex-direction: column;
     background-color: rgb(27, 30, 28);
     height: 80vh;
+    max-width: 100%;
     width: 100%;
     padding: 10px;
     gap: 10px;
@@ -85,34 +87,54 @@ body {
     background-color: #555;
 }
 
+.inputs{
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    
+}
+
 .input-codigo {
     display: flex;
+    position: relative;
     align-items: center;
+    max-width: 100%;
     width: 100%;
-    gap: 5px;
     white-space: nowrap;
+    gap: 10px;
+    
 }
 
 .input-codigo label {
     color: #cecece;
 }
 
-.input-codigo input[type="text"] {
+.input-codigo input[type="text"]{
     height: 40px;
-    width: 100%;
+    width: 190px;
     background-color: #333;
     color: #fff;
     border: 1px solid #666;
     border-radius: 5px;
     outline: none;
-    padding: 0 8px;
+    padding: 0 10px;
 }
 
 .input-codigo input[type="text"]:focus {
     border-color: #4CAF50;
 }
 
-.input-codigo button {
+.div-button{
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+}
+
+.div-button-mobile{
+    display: none;
+}
+
+.div-button button {
     height: 40px;
     background-color: #4CAF50;
     color: #fff;
@@ -121,6 +143,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     padding: 10px;
+    justify-content: right;
 }
 
 .input-codigo button:hover {
@@ -160,7 +183,8 @@ body {
 
 .table th,
 .table td {
-    width: 100%;
+    width: calc(100% / 8);
+    text-align: center;
     padding: 7px;
     border: 1px solid #666;
     color: #fff;
@@ -295,17 +319,39 @@ body {
 }
 
 @media (max-width: 834px) {
+    .app{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .header {
+        display: flex;
+        align-items:last baseline;
+        gap: 10px;
+        background-color: green;
+    }
+    
+    .header h1{
+        position: relative;
+        background: linear-gradient(to bottom right, transparent 50%, #034627 50%); /* Gradient diagonal */
+        z-index: 1;
+        width: 50%;
+        white-space: nowrap;
+        font-size: 1.5rem;
+    }
+
     .main {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 15px;
         gap: 15px;
-        flex: 1;
         overflow-y: auto;
     }
 
     .right-container {
+        position: relative;
         display: flex;
         flex-direction: column;
         background-color: rgb(27, 30, 28);
@@ -315,11 +361,60 @@ body {
         gap: 10px;
     }
 
-    .input-codigo label{
-        display: none;
+    .inputs {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        flex: 1;
+        
     }
 
     
+
+    .input-codigo {
+        position: relative;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+        gap: 10px;
+        padding: 0;
+    }
+
+    .input-field input[type="text"]{
+        height: 40px;
+        background-color: #333;
+        color: #fff;
+        border: 1px solid #666;
+        border-radius: 5px;
+        outline: none;
+        width: 100%;
+    }
+
+    .div-button{
+        display: none;
+    }
+    
+    .div-button-mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        gap: 10px;
+    }
+    
+    .div-button-mobile button {
+        height: 70px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        padding: 10px;
+        justify-content: right;
+    }
 
     table{
         width: 100%;

@@ -1,28 +1,28 @@
 var equipamentos = [];
 
 function adicionarEquipamento() {
-    var codigo = document.getElementById("codigo").value;
+    var idec = document.getElementById("idec").value;
+    var nSerie = document.getElementById("nSerie").value;
+    var patrimonio = document.getElementById("patrimonio").value;
     var setor = document.getElementById("setor").value;
-    if (codigo === "") {
-        alert("Por favor, informe o código do equipamento.");
+    
+    if (idec === "" && nSerie === "" && patrimonio === "") {
+        alert("Preencha pelo menos um dos campos: Idec, N Série ou Patrimônio.");
         return;
     }
-    // Verifica se o código já existe na lista de equipamentos
-    for (var i = 0; i < equipamentos.length; i++) {
-        if (equipamentos[i].codigo === codigo) {
-            alert("Já existe um equipamento com este código.");
-            return;
-        }
-    }
-    equipamentos.push({ codigo: codigo, status: "Pendente", setor: setor });
+    
+    equipamentos.push({ idec: idec, nSerie: nSerie, patrimonio: patrimonio, status: "Pendente", setor: setor });
     atualizarTabela();
-    document.getElementById("codigo").value = "";
+    document.getElementById("idec").value = "";
+    document.getElementById("nSerie").value = "";
+    document.getElementById("patrimonio").value = "";
 
     // Inicia a animação se necessário
     if (!verificarTodosStatusDiferentesPendente()) {
         iniciarAnimacaoTransportar();
     }
 }
+
 
 function deletarEquipamento(index) {
     equipamentos.splice(index, 1);
@@ -64,21 +64,7 @@ function isMobile() {
     return window.innerWidth < 834;
 }
 
-// Atualiza o placeholder do input de acordo com a versão mobile ou desktop
-function atualizarPlaceholderInput() {
-    var inputCodigo = document.getElementById("codigo");
-    if (isMobile()) {
-        inputCodigo.placeholder = "Código do Equipamento";
-    } else {
-        inputCodigo.placeholder = "";
-    }
-}
 
-// Adiciona um ouvinte de evento para atualizar o placeholder quando a tela for redimensionada
-window.addEventListener("resize", atualizarPlaceholderInput);
-
-// Chama a função para definir o placeholder inicialmente
-atualizarPlaceholderInput();
 
 
 
@@ -88,12 +74,14 @@ function atualizarTabela() {
     // Verifica se é a versão mobile ou web
     if (window.innerWidth <= 834) {
         // Versão mobile
-        tabela.innerHTML = "<thead><tr><th>Código</th><th>Status</th><th>Setor</th><th>Opções</th></tr></thead>";
+        tabela.innerHTML = "<thead><tr><th>Idec</th><th>N Série</th><th>Patrimônio</th><th>Status</th><th>Setor</th><th>Opções</th></tr></thead>";
         tabela.innerHTML += "<tbody>";
         for (var i = 0; i < equipamentos.length; i++) {
             var equipamento = equipamentos[i];
             var linha = "<tr>";
-            linha += "<td>" + equipamento.codigo + "</td>";
+            linha += "<td>" + equipamento.idec + "</td>";
+            linha += "<td>" + equipamento.nSerie + "</td>";
+            linha += "<td>" + equipamento.patrimonio + "</td>";
             linha += "<td>" + equipamento.status + "</td>";
             linha += "<td>" + equipamento.setor + "</td>";
             linha += "<td class='btn-group'>";
@@ -108,11 +96,13 @@ function atualizarTabela() {
 
     } else {
         // Versão web
-        tabela.innerHTML = "<tr><th>Código</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
+        tabela.innerHTML = "<tr><th>Idec</th><th>N Série</th><th>Patrimônio</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
         for (var i = 0; i < equipamentos.length; i++) {
             var equipamento = equipamentos[i];
             var linhaWeb = "<tr>";
-            linhaWeb += "<td>" + equipamento.codigo + "</td>";
+            linhaWeb += "<td>" + equipamento.idec + "</td>";
+            linhaWeb += "<td>" + equipamento.nSerie + "</td>";
+            linhaWeb += "<td>" + equipamento.patrimonio + "</td>";
             linhaWeb += "<td>" + equipamento.status + "</td>";
             linhaWeb += "<td>" + equipamento.setor + "</td>";
             linhaWeb += "<td><button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button></td>";
@@ -123,6 +113,7 @@ function atualizarTabela() {
         }
     }
 }
+
 
 function adicionarComEnter(event) {
     if (event.key === "Enter") {
