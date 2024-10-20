@@ -5,101 +5,139 @@ index.html:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Repl.it_logo.svg/220px-Repl.it_logo.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="animacao.css">
-    <title>Magic Click</title>
+    <title>Smart Flow</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Magic Click</h1>
-        <h3>Tecnologia gerando produtividade</h3>
-    </div>
-    <div class="main">
-        <div class="right-container">
-            <div class="lista">
-                <label for="setor">Selecione o Setor:</label>
-                <select id="setor">
-                    <option value="">Selecione um setor...</option>
-                    <option value="3NOR">3º NORTE</option>
-                    <option value="3SUL">3º SUL</option>
-                    <option value="4NOR">4º NORTE</option>
-                    <option value="4SUL">4º SUL</option>
-                    <option value="5NOR">5º NORTE</option>
-                    <option value="5SUL">5º SUL</option>
-                    <option value="6NOR">6º NORTE</option>
-                    <option value="6SUL">6 SUL</option>
-                    <option value="7NOR">7º NORTE</option>
-                    <option value="7SUL">7º SUL (ONCOLOGIA / TRANSPLANTE / HOSPITAL DIA)</option>
-                    <option value="8SUL">8 SUL (CARDIOLOGIA)</option>
-                    <option value="AGHE">AGÊNCIA TRANSFUSIONAL HEMOCE</option>
-                    <option value="BINF">BOMBA DE INFUSÃO (EXCLUSIVO PARA BOMBAS DE INFUSÃO E DE DIETA)</option>
-                    <option value="CEEQ">CENTRAL DE EQUIPAMENTOS</option>
-                    <option value="BLCI">CENTRO CIRÚRGICO</option>
-                    <option value="CEDI">CENTRO DE DISTRIBUIÇÃO</option>
-                    <option value="EDCO">CENTRO DE ESTUDOS PONTES NETO - CEPN</option>
-                    <option value="IMAG">CENTRO DE IMAGEM</option>
-                    <option value="CEME">CENTRO DE MATERIAL ESTERILIZADO</option>
-                    <option value="EMER">EMERGÊNCIA</option>
-                    <option value="ENDO">ENDOSCOPIA</option>
-                    <option value="ENGE">ENGENHARIA CLÍNICA - HU</option>
-                    <option value="ELOC">EQUIPAMENTOS DE TERCEIROS (LOCADOS E COMODATOS)</option>
-                    <option value="FARM">FARMÁCIA CLÍNICA</option>
-                    <option value="FISI">FISIOTERAPIA</option>
-                    <option value="GLIC">GLICOSÍMETROS (EXCLUSIVO PARA CADASTRO DE GLICOSÍMETROS)</option>
-                    <option value="HDSE">HEMODIÁLISE</option>
-                    <option value="HEMO">HEMODINÂMICA</option>
-                    <option value="HDPN">HOSPITAL DIA</option>
-                    <option value="INTE">INTERNAÇÃO - 2º ANDAR</option>
-                    <option value="LABHP">LABORATORIO HERMES PARDINI</option>
-                    <option value="LAMK">LABORATÓRIO MIKROS</option>
-                    <option value="LAHR">LABORATÓRIO UNIMED FORTALEZA</option>
-                    <option value="METR">MEDICINA PREVENTIVA DO HU - AIS</option>
-                    <option value="PADR">PADRÕES PARA CALIBRAÇÃO</option>
-                    <option value="SREC">SALA DE RECUPERAÇÃO</option>
-                    <option value="SADT">SERVIÇO DE APOIO, DIAGNÓSTICO E TERAPÊUTICA (SADT)</option>
-                    <option value="SMST">SESMT</option>
-                    <option value="TEMP">TEMPORÁRIO</option>
-                    <option value="TEPA">TEMPORARIO PARDINI</option>
-                    <option value="3NUT">UTI 3º NORTE</option>
-                    <option value="3SUT">UTI 3º SUL</option>
-                    <option value="4SUT">UTI 4º SUL</option>
-                    <option value="UTI8">UTI 8° NORTE</option>
-                    <option value="UTAC">UTI ALTA COMPLEXIDADE</option>
-                    <option value="VENT">VENTILADOR PULMONAR</option>
-                    <option value="ESEC">Z - ESTOQUE - ENGENHARIA CLÍNICA</option>
-                    <option value="ACES">Z - GERAL (USO INTERNO ENG: EXCLUSIVO PARA CADASTRO DE ACESSÓRIOS)</option>
-                    <option value="EINA">Z (USO INTERNO ENG: EQUIPAMENTOS EM PROCESSO DE INATIVAÇÃO)</option>
-                    <option value="INVE">Z (USO INTERNO ENG: INVENTÁRIO - HU)</option>                    
-                </select>
+    <div class="app">
+        <div class="header">
+            <h1>Smart Flow</h1>
+            <h3>Tecnologia gerando produtividade</h3>
+        </div>
+        <div class="main">
+            <div class="right-container">
+                <div class="lista">
+                    <label for="setor">Selecione o Setor:</label>
+                    <select id="setor">
+                        <option value="">Selecione um setor...</option>
+                        <option value="3NOR">3º NORTE</option>
+                        <option value="3SUL">3º SUL</option>
+                        <option value="4NOR">4º NORTE</option>
+                        <option value="4SUL">4º SUL</option>
+                        <option value="5NOR">5º NORTE</option>
+                        <option value="5SUL">5º SUL</option>
+                        <option value="6NOR">6º NORTE</option>
+                        <option value="6SUL">6 SUL</option>
+                        <option value="7NOR">7º NORTE</option>
+                        <option value="7SUL">7º SUL</option>
+                        <option value="8SUL">8 SUL</option>
+                        <option value="AGHE">HEMOCE</option>
+                        <option value="BINF">BOMBA DE INFUSÃO</option>
+                        <option value="CEEQ">CENTRAL DE EQUIPAMENTOS</option>
+                        <option value="BLCI">CENTRO CIRÚRGICO</option>
+                        <option value="CEDI">CENTRO DE DISTRIBUIÇÃO</option>
+                        <option value="EDCO">CENTRO DE ESTUDOS</option>
+                        <option value="IMAG">CENTRO DE IMAGEM</option>
+                        <option value="CEME">CME</option>
+                        <option value="EMER">EMERGÊNCIA</option>
+                        <option value="ENDO">ENDOSCOPIA</option>
+                        <option value="ENGE">ENGENHARIA CLÍNICA</option>
+                        <option value="ELOC">EQUIPAMENTOS DE TERCEIROS</option>
+                        <option value="FARM">FARMÁCIA CLÍNICA</option>
+                        <option value="FISI">FISIOTERAPIA</option>
+                        <option value="GLIC">GLICOSÍMETROS</option>
+                        <option value="HDSE">HEMODIÁLISE</option>
+                        <option value="HEMO">HEMODINÂMICA</option>
+                        <option value="HDPN">HOSPITAL DIA</option>
+                        <option value="INTE">INTERNAÇÃO</option>
+                        <option value="LABHP">LAB PARDINI</option>
+                        <option value="LAMK">LAB MIKROS</option>
+                        <option value="LAHR">LAB UNIMED FORTALEZA</option>
+                        <option value="METR">MEDICINA PREVENTIVA - AIS</option>
+                        <option value="PADR">PADRÕES PARA CALIBRAÇÃO</option>
+                        <option value="SREC">SALA DE RECUPERAÇÃO</option>
+                        <option value="SADT">SADT</option>
+                        <option value="SMST">SESMT</option>
+                        <option value="TEMP">TEMPORÁRIO</option>
+                        <option value="TEPA">TEMPORARIO PARDINI</option>
+                        <option value="3NUT">UTI 3º NORTE</option>
+                        <option value="3SUT">UTI 3º SUL</option>
+                        <option value="4SUT">UTI 4º SUL</option>
+                        <option value="UTI8">UTI 8° NORTE</option>
+                        <option value="UTAC">UTI ALTA COMPLEXIDADE</option>
+                        <option value="VENT">VENTILADOR PULMONAR</option>
+                        <option value="ESEC">Z - ESTOQUE - ENGENHARIA CLÍNICA</option>
+                        <option value="ACES">Z - GERAL</option>
+                        <option value="EINA">Z (EINA)</option>
+                        <option value="INVE">Z (INVENTÁRIO - HU)</option>                    
+                    </select>
+                </div>
+                <div class="inputs">
+                    <div class="input-codigo">
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                id="idec"
+                                onkeypress="adicionarComEnter(event)"
+                                placeholder="IDEC"
+                            />
+                        </div>
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                id="nSerie"
+                                onkeypress="adicionarComEnter(event)"
+                                placeholder="N° de Série"
+                            />
+                        </div>
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                id="patrimonio"
+                                onkeypress="adicionarComEnter(event)"
+                                placeholder="Patrimônio"
+                            />
+                        </div>
+                    </div>
+                    <div class="div-button-mobile">
+                        <button id="importar-btn" onclick="adicionarEquipamento()">Adicionar</button>
+                        <button id="carregar-tabela-btn" onclick="carregarTabela()">Importar</button>
+                    </div>
+                  
+                </div>
+                <button id="exportar-btn-web" onclick="exportarTabelaXLSX()">Exportar planilha</button>
+                <div class="div-button">
+                    <button id="importar-btn" onclick="adicionarEquipamento()">Adicionar</button>
+                    <button id="carregar-tabela-btn" onclick="carregarTabela()">Importar</button>
+                    
+                </div>
+                
+                <div class="table">
+                    <table id="tabelaEquipamentos">
+                        <tr>
+                            <th>Idec</th>
+                            <th>N Série</th>
+                            <th>Patrimônio</th>
+                            <th>Status</th>
+                            <th>Setor</th>
+                            <th>Ok</th>
+                            <th>Erro</th>
+                            <th>Deletar</th>
+                        </tr>
+                    </table>
+                </div>
             </div>
-            <div class="input-codigo">
-                <label for="codigo">Código do Equipamento:</label>
-                <input type="text" id="codigo" onkeypress="adicionarComEnter(event)">
-                <button onclick="adicionarEquipamento()">Adicionar</button>
-                <button id="carregar-tabela-btn" onclick="carregarTabela()">Importar Tabela</button>
-            </div>
-            <div class="table">
-                <table id="tabelaEquipamentos">
-                    <tr>
-                        <th>Código do Equipamento</th>
-                        <th>Status</th>
-                        <th>Setor</th>
-                        <th>Ok</th>
-                        <th>Erro</th>
-                        <th>Deletar</th>
-                    </tr>
-                </table>
+            <div class="left-container">
+                <button id="transportar-btn"><i class="fas fa-exchange-alt"></i>Transportar</button>
+                <button id="os-btn"><i class="fas fa-wrench"></i>Abrir OS Corretiva</button>
             </div>
         </div>
-        <div class="left-container">
-            <button id="transportar-btn"><i class="fas fa-exchange-alt"></i>Transportar</button>
-            <button id="os-btn"><i class="fas fa-wrench"></i>Abrir OS Corretiva</button>
-            <button id="exportar-btn" onclick="exportarTabelaXLSX()">Exportar planilha</button>
+        <div class="rodape">
+            <p>Desenvolvido por Felipe R. Costa</p>
         </div>
-    </div>
-    <div class="rodape">
-        <p>Desenvolvido por Felipe R. Costa</p>
     </div>
     <script src="script.js"></script>
     <script src="transportar.js"></script>
@@ -110,26 +148,58 @@ index.html:
 </html>
 
 
+
+-----------------------------------------------------------------------------
+
+
+
 script.js:
 var equipamentos = [];
 
+function carregarEquipamentosDoLocalStorage() {
+    var equipamentosSalvos = localStorage.getItem('equipamentos');
+    var setorSelecionado = localStorage.getItem('setorSelecionado');
+
+    if (equipamentosSalvos) {
+        equipamentos = JSON.parse(equipamentosSalvos);
+        atualizarTabela(); 
+    }
+
+    if (setorSelecionado) {
+        document.getElementById("setor").value = setorSelecionado; // Define o valor do setor
+    }
+}
+
+carregarEquipamentosDoLocalStorage();
+
 function adicionarEquipamento() {
-    var codigo = document.getElementById("codigo").value;
+    var idec = document.getElementById("idec").value;
+    var nSerie = document.getElementById("nSerie").value;
+    var patrimonio = document.getElementById("patrimonio").value;
     var setor = document.getElementById("setor").value;
-    if (codigo === "") {
-        alert("Por favor, informe o código do equipamento.");
+
+    if (idec === "" && nSerie === "" && patrimonio === "") {
+        alert("Preencha pelo menos um dos campos: Idec, N Série ou Patrimônio.");
         return;
     }
-    // Verifica se o código já existe na lista de equipamentos
-    for (var i = 0; i < equipamentos.length; i++) {
-        if (equipamentos[i].codigo === codigo) {
-            alert("Já existe um equipamento com este código.");
-            return;
-        }
-    }
-    equipamentos.push({ codigo: codigo, status: "Pendente", setor: setor });
+
+    // Adiciona os dados ao array, mantendo os zeros à esquerda
+    equipamentos.push({ 
+        idec: idec, 
+        nSerie: nSerie.toString(), // Converte para string para manter os zeros
+        patrimonio: patrimonio.toString(), // Converte para string para manter os zeros
+        status: "Pendente", 
+        setor: setor 
+    });
+
+    // Salva os dados no LocalStorage
+    localStorage.setItem('equipamentos', JSON.stringify(equipamentos)); 
+    localStorage.setItem('setorSelecionado', document.getElementById("setor").value); // Salva o setor
+    
     atualizarTabela();
-    document.getElementById("codigo").value = "";
+    document.getElementById("idec").value = "";
+    document.getElementById("nSerie").value = "";
+    document.getElementById("patrimonio").value = "";
 
     // Inicia a animação se necessário
     if (!verificarTodosStatusDiferentesPendente()) {
@@ -137,13 +207,22 @@ function adicionarEquipamento() {
     }
 }
 
+
 function deletarEquipamento(index) {
     equipamentos.splice(index, 1);
+
+    // Atualiza os dados no LocalStorage
+    localStorage.setItem('equipamentos', JSON.stringify(equipamentos));
+    
     atualizarTabela();
 }
 
 function alterarStatus(index) {
     equipamentos[index].status = "OK";
+
+    // Atualiza os dados no LocalStorage
+    localStorage.setItem('equipamentos', JSON.stringify(equipamentos));
+    
     atualizarTabela();
 
     // Verifica se todos os status são diferentes de Pendente e encerra a animação se necessário
@@ -154,6 +233,10 @@ function alterarStatus(index) {
 
 function alterarStatusErro(index) {
     equipamentos[index].status = "Erro";
+
+    // Atualiza os dados no LocalStorage
+    localStorage.setItem('equipamentos', JSON.stringify(equipamentos));
+    
     atualizarTabela();
 
     // Verifica se todos os status são diferentes de Pendente e encerra a animação se necessário
@@ -172,21 +255,32 @@ function verificarTodosStatusDiferentesPendente() {
     return true;
 }
 
+// Verifica se está na versão mobile (largura de tela menor que 834px)
+function isMobile() {
+    return window.innerWidth < 834;
+}
+
+
+
+
 
 function atualizarTabela() {
     var tabela = document.getElementById("tabelaEquipamentos");
-    
+
     // Verifica se é a versão mobile ou web
     if (window.innerWidth <= 834) {
         // Versão mobile
-        tabela.innerHTML = "";
+        tabela.innerHTML = "<thead><tr><th>Idec</th><th>N Série</th><th>Patrimônio</th><th>Status</th><th>Setor</th><th>Opções</th></tr></thead>";
+        tabela.innerHTML += "<tbody>";
         for (var i = 0; i < equipamentos.length; i++) {
             var equipamento = equipamentos[i];
             var linha = "<tr>";
-            linha += "<td><b>Código: </b> " + " " + equipamento.codigo + "</td>";
-            linha += "<td><b>Status: </b> " + " " + equipamento.status + "</td>";
-            linha += "<td><b>Setor: </b> " + " " + equipamento.setor + "</td>";
-            linha += "<td colspan='3' class='btn-group'>";
+            linha += "<td>" + equipamento.idec + "</td>";
+            linha += "<td>" + equipamento.nSerie + "</td>";
+            linha += "<td>" + equipamento.patrimonio + "</td>";
+            linha += "<td>" + equipamento.status + "</td>";
+            linha += "<td>" + equipamento.setor + "</td>";
+            linha += "<td class='btn-group'>";
             linha += "<button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button>";
             linha += "<button class='btn-erro' onclick='alterarStatusErro(" + i + ")'>Erro</button>";
             linha += "<button class='btn-deletar' onclick='deletarEquipamento(" + i + ")'>Deletar</button>";
@@ -194,13 +288,17 @@ function atualizarTabela() {
             linha += "</tr>";
             tabela.innerHTML += linha;
         }
+        tabela.innerHTML += "</tbody>";
+
     } else {
         // Versão web
-        tabela.innerHTML = "<tr><th>Código</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
+        tabela.innerHTML = "<tr><th>Idec</th><th>N Série</th><th>Patrimônio</th><th>Status</th><th>Setor</th><th>Ok</th><th>Erro</th><th>Deletar</th></tr>";
         for (var i = 0; i < equipamentos.length; i++) {
             var equipamento = equipamentos[i];
             var linhaWeb = "<tr>";
-            linhaWeb += "<td>" + equipamento.codigo + "</td>";
+            linhaWeb += "<td>" + equipamento.idec + "</td>";
+            linhaWeb += "<td>" + equipamento.nSerie + "</td>";
+            linhaWeb += "<td>" + equipamento.patrimonio + "</td>";
             linhaWeb += "<td>" + equipamento.status + "</td>";
             linhaWeb += "<td>" + equipamento.setor + "</td>";
             linhaWeb += "<td><button class='btn-ok' onclick='alterarStatus(" + i + ")'>OK</button></td>";
@@ -211,6 +309,7 @@ function atualizarTabela() {
         }
     }
 }
+
 
 function adicionarComEnter(event) {
     if (event.key === "Enter") {
@@ -227,6 +326,643 @@ function encerrarAnimacaoTransportar() {
 
 
 
+
+----------------------------------------------------------------------------------
+
+
+index.css:
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(208, 208, 208);
+}
+
+body {
+
+  background-color: rgb(20, 20, 20);
+}
+
+.header {
+  display: flex;
+  align-items:last baseline;
+  gap: 10px;
+  padding: 5px;
+  background-color: green;
+}
+
+.header h1{
+  position: relative;
+  padding: 5px;
+  background: linear-gradient(to bottom right, transparent 50%, #034627 50%); /* Gradient diagonal */
+  z-index: 1;
+}
+
+.main {
+  display: flex;
+  padding: 15px;
+  gap: 15px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.right-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background-color: rgb(27, 30, 28);
+  height: 80vh;
+  max-width: 100%;
+  width: 100%;
+  padding: 10px;
+  gap: 10px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lista select {
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+}
+
+.lista label{
+  color: #cecece;
+}
+
+.lista select:focus {
+  border-color: #4CAF50;
+}
+
+.lista select::-ms-expand {
+  display: none;
+}
+
+.lista select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.lista select::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 4px;
+}
+
+.lista select::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.inputs{
+  display: flex;
+  width: 100%;
+  padding: 0px;
+
+}
+
+.input-codigo {
+  display: flex;
+  position: relative;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  white-space: nowrap;
+  gap: 10px;
+
+}
+
+.input-codigo label {
+  color: #cecece;
+}
+
+.input-codigo input[type="text"]{
+  height: 40px;
+  width: 190px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 5px;
+  outline: none;
+  padding: 0 10px;
+}
+
+.input-codigo input[type="text"]:focus {
+  border-color: #4CAF50;
+}
+
+.div-button{
+  display: flex;
+  justify-content: right;
+  gap: 5px;
+}
+
+.div-button-mobile{
+  display: none;
+}
+
+.div-button button {
+  height: 40px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 10px;
+  justify-content: right;
+}
+
+.input-codigo button:hover {
+  background-color: #3f9243;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-y: auto;
+  max-height: 80vh;
+  position: relative; /* Adicionado para posicionar o cabeçalho de forma absoluta */
+}
+
+.table thead {
+  position: sticky; /* Torna o cabeçalho fixo */
+  top: 0; /* Define a posição fixa no topo */
+  z-index: 1; /* Garante que o cabeçalho fique acima do corpo da tabela */
+}
+
+.table tbody {
+  max-height: calc(80vh - 40px); /* Subtrai a altura do cabeçalho */
+}
+
+.table::-webkit-scrollbar {
+  width: 10px;
+}
+
+.table::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+.table::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.table th,
+.table td {
+  width: calc(100% / 8);
+  text-align: center;
+  padding: 7px;
+  border: 1px solid #666;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.table th {
+  background-color: #4CAF50;
+}
+
+.table td {
+  background-color: #333;
+}
+
+.table button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  padding: 5px;
+}
+
+.table .btn-deletar:hover {
+  background-color: #d32f2f;
+}
+
+.table .btn-ok {
+  background-color: #4CAF50; /* Verde */
+}
+
+.table .btn-ok:hover {
+  background-color: #39883c;
+}
+
+
+.table .btn-erro {
+  background-color: #c2af00; /* Amarelo */
+}
+
+.table .btn-erro:hover {
+  background-color: #938400; /* Amarelo */
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(27, 30, 28);
+  height: 80vh;
+  width: 100%;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.left-container button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: green; /* Cor de fundo azul */
+  color: #fff;
+  border: none;
+  width: 60%; /* Largura dos botões */
+  height: 60%; /* Altura dos botões */
+  font-size: 30px; /* Tamanho do ícone */
+  margin-bottom: 10px; /* Espaçamento entre os botões */
+  transition: background-color 0.2s;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+.left-container button:hover {
+  background-color: #4caf4f82; /* Cor de fundo azul escuro ao passar o mouse */
+  border-color: #72ff76;
+  box-shadow: 0 0 10px rgb(94, 255, 137);
+}
+
+/* Estilo específico para o ícone de troca/seta */
+#transportar-btn {
+  margin-bottom: 20px; /* Espaçamento adicional para o ícone de troca/seta */
+}
+
+/* Estilo específico para o ícone de chave de fenda */
+#os-btn {
+  margin-bottom: 0; /* Remover espaçamento inferior para o ícone de chave de fenda */
+}
+
+#exportar-btn{
+  display: none;
+}
+
+#importar-btn{
+  background-color: #00512b;
+}
+#importar-btn:hover{
+  background-color: #007b42;
+  border-color: #a7ffa9;
+}
+
+#exportar-btn-web{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: green; /* Cor de fundo azul */
+  color: #fff;
+  border: none;
+  font-size: 30px; /* Tamanho do ícone */
+  margin-bottom: 10px; /* Espaçamento entre os botões */
+  transition: background-color 0.2s;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  margin-bottom: 0;
+  background-color: #00512b;
+}
+
+#exportar-btn-web:hover{
+  background-color: #007b42;
+  border-color: #a7ffa8b1;
+
+}
+
+#carregar-tabela-btn{
+  background-color: #00512b;
+}
+
+#carregar-tabela-btn:hover{
+  background-color: #007b42;
+  border-color: #a7ffa9;
+}
+
+.rodape{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rodape P{
+  color: #777676;
+}
+
+@media (max-width: 834px) {
+  .app{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .header {
+      display: flex;
+      align-items:last baseline;
+      gap: 10px;
+      background-color: green;
+  }
+
+  .header h1{
+      position: relative;
+      background: linear-gradient(to bottom right, transparent 50%, #034627 50%); /* Gradient diagonal */
+      z-index: 1;
+      width: 50%;
+      white-space: nowrap;
+      font-size: 1.5rem;
+  }
+
+  .main {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      overflow-y: auto;
+  }
+
+  .right-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(27, 30, 28);
+      height: 100%;
+      width: 100%;
+      padding: 10px;
+      gap: 10px;
+  }
+
+  .inputs {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      flex: 1;
+
+  }
+
+
+
+  .input-codigo {
+      position: relative;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: start;
+      width: 100%;
+      gap: 10px;
+      padding: 0;
+  }
+
+  .input-field input[type="text"]{
+      height: 40px;
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #666;
+      border-radius: 5px;
+      outline: none;
+      width: 100%;
+  }
+
+  .div-button{
+      display: none;
+  }
+
+  .div-button-mobile{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%;
+      height: 100%;
+      gap: 10px;
+  }
+
+  .div-button-mobile button {
+      height: 70px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      padding: 10px;
+      justify-content: right;
+  }
+
+  table{
+      width: 100%;
+  }
+
+
+
+  .table tbody tr{
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #666;
+      margin-bottom: 10px;        
+  }
+
+  .table td,
+  .table th {
+      width: auto; /* Define a largura automática para as células */
+      padding: 9px;
+      border: none;
+      border-bottom: 1px solid #666;
+      display: flex;
+      align-items: center;
+      height: 23px;
+      gap: 5px;
+  }
+
+  .table td:first-child,
+  .table th:first-child {
+      border-left: 1px solid #666; /* Adiciona borda esquerda para a primeira célula */
+  }
+
+  .table td:last-child,
+  .table th:last-child {
+      border-right: 1px solid #666; /* Adiciona borda direita para a última célula */
+  }
+
+  .table th {
+      display: none; /* Oculta os cabeçalhos da tabela em dispositivos móveis */
+  }
+
+  .btn-group {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .btn-group button{
+      padding: 8px 30px;
+  }
+
+  .left-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(27, 30, 28);
+      height: 100%;
+      width: 100%;
+      overflow-y: auto;
+      padding: 10px;
+  }
+
+  .left-container button{
+    display: none;
+  }
+
+  #exportar-btn-web{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background-color: green; /* Cor de fundo azul */
+      color: #fff;
+      border: none;
+      font-size: 30px; /* Tamanho do ícone */
+      margin-bottom: 10px; /* Espaçamento entre os botões */
+      transition: background-color 0.2s;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      padding: 15px;
+  }
+
+  
+
+  /* Estilo específico para o ícone de chave de fenda */
+  #os-btn {
+      display: none;
+  }
+
+  #exportar-btn{
+      display: flex;
+  }
+
+}
+
+
+-------------------------------------------------------------------------------
+
+
+animacao.css:
+@keyframes transporte {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(0.8);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.animacao-transporte {
+  animation: transporte 1s infinite; /* Animação dura 1 segundo e repete infinitamente */
+}
+
+
+
+--------------------------------------------------------------------------------------
+
+
+carregarTabela.js:
+function carregarTabela() {
+    // Cria um input do tipo file para selecionar os arquivos XLSX
+    var input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.xlsx';
+    input.multiple = true; // Permite seleção de múltiplos arquivos
+
+    // Contador para acompanhar o número de arquivos processados
+    var arquivosProcessados = 0;
+
+    // Adiciona um evento para capturar os arquivos selecionados
+    input.onchange = function(event) {
+        var files = event.target.files;
+
+        // Itera sobre cada arquivo selecionado
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+
+            // Cria um objeto FileReader para ler o conteúdo do arquivo
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var data = new Uint8Array(e.target.result);
+
+                // Carrega o arquivo XLSX usando a biblioteca XLSX.js
+                var workbook = XLSX.read(data, { type: 'array' });
+
+                // Itera sobre cada planilha do arquivo XLSX
+                workbook.SheetNames.forEach(function(sheetName) {
+                    // Obtém a planilha atual
+                    var sheet = workbook.Sheets[sheetName];
+
+                    // Converte os dados da planilha em um array de objetos JavaScript
+                    var jsonData = XLSX.utils.sheet_to_json(sheet);
+
+                    // Adiciona os dados da planilha à lista de equipamentos
+                    jsonData.forEach(function(row) {
+                        equipamentos.push({
+                            idec: row['Idec'] || "",
+                            nSerie: row['N Série'] || "",
+                            patrimonio: row['Patrimônio'] || "",
+                            status: row['Status'] || "",
+                            setor: row['Setor'] || ""
+                        });
+                    });
+                });
+
+                // Incrementa o contador de arquivos processados
+                arquivosProcessados++;
+
+                // Verifica se todos os arquivos foram processados antes de atualizar a tabela
+                if (arquivosProcessados === files.length) {
+                    atualizarTabela();
+                }
+            };
+
+            // Lê o conteúdo do arquivo como um array buffer
+            reader.readAsArrayBuffer(file);
+        }
+    };
+
+    // Dispara o clique no input para abrir a janela de seleção de arquivo
+    input.click();
+}
+
+
+
+-------------------------------------------------------------------------------
+
+
+exportarTabelaXLSX.js:
+function exportarTabelaXLSX() {
+    var nomeArquivo = "Smart Flow - ";
+    var tabela = document.getElementById("tabelaEquipamentos");
+    var wb = XLSX.utils.table_to_book(tabela, {sheet: "Equipamentos"});
+    XLSX.writeFile(wb, nomeArquivo + ".xlsx", {sheet: nomeArquivo});
+}
+
+
+-------------------------------------------------------------------------------------
+
+
 transportar.js:
 document.getElementById("transportar-btn").addEventListener("click", function() {
     // Verifica se há linhas na tabela
@@ -234,7 +970,7 @@ document.getElementById("transportar-btn").addEventListener("click", function() 
         alert("Por favor, insira pelo menos um equipamento na tabela antes de transportar.");
         return;
     }
-    
+
     var btn = this; // Captura o botão atual
     var iconeHTML = btn.innerHTML; // Armazena o HTML do ícone
 
@@ -272,6 +1008,8 @@ document.getElementById("transportar-btn").addEventListener("click", function() 
 
 
 
+-----------------------------------------------------------------------------------
+
 
 abrirOsCorretiva.js:
 document.getElementById("os-btn").addEventListener("click", function() {
@@ -280,7 +1018,7 @@ document.getElementById("os-btn").addEventListener("click", function() {
         alert("Por favor, insira pelo menos um equipamento na tabela antes de abrir a OS Corretiva.");
         return;
     }
-    
+
     var btn = this; // Captura o botão atual
     var iconeHTML = btn.innerHTML; // Armazena o HTML do ícone
 
@@ -315,66 +1053,3 @@ document.getElementById("os-btn").addEventListener("click", function() {
         }, 1000); // Verifica a cada segundo
     }
 });
-
-
-
-exportarTabelaXLSX.js:
-function exportarTabelaXLSX() {
-    var tabela = document.getElementById("tabelaEquipamentos");
-    var wb = XLSX.utils.table_to_book(tabela, {sheet: "Equipamentos"});
-    XLSX.writeFile(wb, "equipamentos.xlsx");
-}
-
-
-
-carregarTabela.js:
-function carregarTabela() {
-    // Cria um input do tipo file para selecionar o arquivo XLSX
-    var input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.xlsx';
-    
-    // Adiciona um evento para capturar o arquivo selecionado
-    input.onchange = function(event) {
-        var file = event.target.files[0];
-        
-        // Verifica se um arquivo foi selecionado
-        if (file) {
-            // Cria um objeto FileReader para ler o conteúdo do arquivo
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                var data = new Uint8Array(e.target.result);
-                
-                // Carrega o arquivo XLSX usando a biblioteca XLSX.js
-                var workbook = XLSX.read(data, { type: 'array' });
-                
-                // Obtém a primeira planilha do arquivo XLSX
-                var firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-                
-                // Converte os dados da planilha em um array de objetos JavaScript
-                var jsonData = XLSX.utils.sheet_to_json(firstSheet);
-                
-                // Limpa a lista de equipamentos antes de carregar os novos dados
-                equipamentos = [];
-                
-                // Adiciona os dados carregados à lista de equipamentos
-                jsonData.forEach(function(row) {
-                    equipamentos.push({
-                        codigo: row['Codigo'],
-                        status: row['Status'],
-                        setor: row['Setor']
-                    });
-                });
-                
-                // Atualiza a tabela com os novos dados
-                atualizarTabela();
-            };
-            
-            // Lê o conteúdo do arquivo como um array buffer
-            reader.readAsArrayBuffer(file);
-        }
-    };
-    
-    // Dispara o clique no input para abrir a janela de seleção de arquivo
-    input.click();
-}
