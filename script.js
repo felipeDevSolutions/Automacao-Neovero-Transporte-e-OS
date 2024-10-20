@@ -1,17 +1,45 @@
 var equipamentos = [];
 
+function carregarEquipamentosDoLocalStorage() {
+    var equipamentosSalvos = localStorage.getItem('equipamentos');
+    var setorSelecionado = localStorage.getItem('setorSelecionado');
+
+    if (equipamentosSalvos) {
+        equipamentos = JSON.parse(equipamentosSalvos);
+        atualizarTabela(); 
+    }
+
+    if (setorSelecionado) {
+        document.getElementById("setor").value = setorSelecionado; // Define o valor do setor
+    }
+}
+
+carregarEquipamentosDoLocalStorage();
+
 function adicionarEquipamento() {
     var idec = document.getElementById("idec").value;
     var nSerie = document.getElementById("nSerie").value;
     var patrimonio = document.getElementById("patrimonio").value;
     var setor = document.getElementById("setor").value;
-    
+
     if (idec === "" && nSerie === "" && patrimonio === "") {
         alert("Preencha pelo menos um dos campos: Idec, N Série ou Patrimônio.");
         return;
     }
+
+    // Adiciona os dados ao array, mantendo os zeros à esquerda
+    equipamentos.push({ 
+        idec: idec, 
+        nSerie: nSerie.toString(), // Converte para string para manter os zeros
+        patrimonio: patrimonio.toString(), // Converte para string para manter os zeros
+        status: "Pendente", 
+        setor: setor 
+    });
+
+    // Salva os dados no LocalStorage
+    localStorage.setItem('equipamentos', JSON.stringify(equipamentos)); 
+    localStorage.setItem('setorSelecionado', document.getElementById("setor").value); // Salva o setor
     
-    equipamentos.push({ idec: idec, nSerie: nSerie, patrimonio: patrimonio, status: "Pendente", setor: setor });
     atualizarTabela();
     document.getElementById("idec").value = "";
     document.getElementById("nSerie").value = "";
@@ -26,11 +54,19 @@ function adicionarEquipamento() {
 
 function deletarEquipamento(index) {
     equipamentos.splice(index, 1);
+
+    // Atualiza os dados no LocalStorage
+    localStorage.setItem('equipamentos', JSON.stringify(equipamentos));
+    
     atualizarTabela();
 }
 
 function alterarStatus(index) {
     equipamentos[index].status = "OK";
+
+    // Atualiza os dados no LocalStorage
+    localStorage.setItem('equipamentos', JSON.stringify(equipamentos));
+    
     atualizarTabela();
 
     // Verifica se todos os status são diferentes de Pendente e encerra a animação se necessário
@@ -41,6 +77,10 @@ function alterarStatus(index) {
 
 function alterarStatusErro(index) {
     equipamentos[index].status = "Erro";
+
+    // Atualiza os dados no LocalStorage
+    localStorage.setItem('equipamentos', JSON.stringify(equipamentos));
+    
     atualizarTabela();
 
     // Verifica se todos os status são diferentes de Pendente e encerra a animação se necessário
@@ -70,7 +110,7 @@ function isMobile() {
 
 function atualizarTabela() {
     var tabela = document.getElementById("tabelaEquipamentos");
-    
+
     // Verifica se é a versão mobile ou web
     if (window.innerWidth <= 834) {
         // Versão mobile
