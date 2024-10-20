@@ -36,8 +36,8 @@ function carregarTabela() {
                     jsonData.forEach(function(row) {
                         equipamentos.push({
                             idec: row['Idec'] || "",
-                            nSerie: row['N Série'] || "",
-                            patrimonio: row['Patrimônio'] || "",
+                            nSerie: (row['N Série'] || "").toString(), // Converte para string para manter zeros à esquerda
+                            patrimonio: (row['Patrimônio'] || "").toString(), // Converte para string para manter zeros à esquerda
                             status: row['Status'] || "",
                             setor: row['Setor'] || ""
                         });
